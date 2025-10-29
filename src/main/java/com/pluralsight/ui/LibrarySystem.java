@@ -119,7 +119,6 @@ public class LibrarySystem {
         }
     }
 
-    // FULLY IMPLEMENTED BOOK MENU (Reference for students)
     private void bookMenu() {
         boolean inBookMenu = true;
         while (inBookMenu) {
@@ -216,19 +215,18 @@ public class LibrarySystem {
         }
     }
 
-    // PLACEHOLDER MAGAZINE MENU (Students will implement)
     private void magazineMenu() {
         boolean inMagazineMenu = true;
         while (inMagazineMenu) {
             System.out.println("\n=== Magazine Menu ===");
             System.out.println("1. View all magazines");
             System.out.println("2. View available magazines");
-            System.out.println("3. Search magazines by title");
+            System.out.println("3. Search magazines");
             System.out.println("4. Search magazines by publisher");
             System.out.println("5. Search magazines by genre");
             System.out.println("6. Borrow magazine");
             System.out.println("7. Return magazine");
-            System.out.println("8. Show issue information");
+            System.out.println("8. Back to Main Menu");
             System.out.println("Enter your choice: ");
 
             int choice = getChoice();
