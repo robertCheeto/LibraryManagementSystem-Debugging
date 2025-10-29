@@ -188,28 +188,28 @@ public class LibrarySystem {
 
             switch (choice) {
                 case 1:
-                    viewAllBooks();
+                    viewAllMovies();
                     break;
                 case 2:
-                    viewAvailableBooks();
+                    viewAvailableMovies();
                     break;
-                case 3:
-                    searchBooks();
-                    break;
+//                case 3:
+//                    searchMovies();
+//                    break;
                 case 4:
-                    searchBooksByAuthor();
+                    searchMoviesByDirector();
                     break;
-                case 5:
-                    searchBooksByGenre();
-                    break;
-                case 6:
-                    borrowSpecificBook();
-                    break;
-                case 7:
-                    returnSpecificBook();
-                    break;
+//                case 5:
+//                    searchMoviesByGenre();
+//                    break;
+//                case 6:
+//                    borrowSpecificMovie();
+//                    break;
+//                case 7:
+//                    returnSpecificMovies();
+//                    break;
                 case 8:
-                    inBookMenu = false;
+                    inMovieMenu = false;
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -259,15 +259,15 @@ public class LibrarySystem {
     }
 
     private void viewAllMovies() {
-        List<Book> books = library.getAllBooks();
-        if (books.isEmpty()) {
-            System.out.println("No books in the library.");
+        List<Movie> movies = library.getAllMovies();
+        if (movies.isEmpty()) {
+            System.out.println("No movies in the library.");
             return;
         }
 
-        System.out.println("\n=== All Books ===");
-        for (Book book : books) {
-            System.out.println(book);
+        System.out.println("\n=== All Movies ===");
+        for (Movie movie : movies) {
+            System.out.println(movie);
         }
     }
 
@@ -281,6 +281,19 @@ public class LibrarySystem {
         System.out.println("\n=== Available Books ===");
         for (Book book : availableBooks) {
             System.out.println(book);
+        }
+    }
+
+    private void viewAvailableMovies() {
+        List<Movie> availableMovies = library.getAvailableMovies();
+        if (availableMovies.isEmpty()) {
+            System.out.println("No movies currently available.");
+            return;
+        }
+
+        System.out.println("\n=== Available Movies ===");
+        for (Movie movie : availableMovies) {
+            System.out.println(movie);
         }
     }
 
@@ -310,6 +323,21 @@ public class LibrarySystem {
             System.out.println("\n=== Books by " + author + " ===");
             for (Book book : results) {
                 System.out.println(book);
+            }
+        }
+    }
+
+    private void searchMoviesByDirector() {
+        System.out.print("Enter director name: ");
+        String director = scanner.nextLine();
+
+        List<Movie> results = library.searchByDirector(director);
+        if (results.isEmpty()) {
+            System.out.println("No movies found by director: " + director);
+        } else {
+            System.out.println("\n=== Movies by " + director + " ===");
+            for (Movie movie : results) {
+                System.out.println(movie);
             }
         }
     }
