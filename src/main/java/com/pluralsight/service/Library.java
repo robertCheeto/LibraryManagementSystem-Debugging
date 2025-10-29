@@ -185,7 +185,7 @@ public class Library {
             return false;
         }
 
-        item.setAvailable(false);
+        //item.setAvailable(false);
 
         if (!item.isAvailable()) {
             logger.warn("Borrow attempt failed - Item not available: " + item.getTitle() + " (ID: " + itemId + ")");
@@ -199,6 +199,7 @@ public class Library {
 
         member.borrowBook(itemId);
         logger.info("Item borrowed successfully - Member: " + member.getName() + " (" + memberId + "), Item: " + item.getTitle() + " (" + itemId + ")");
+        item.setAvailable(false);
         return true;
     }
 
