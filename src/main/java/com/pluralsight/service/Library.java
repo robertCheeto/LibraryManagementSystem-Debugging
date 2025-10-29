@@ -85,6 +85,16 @@ public class Library {
         return movies;
     }
 
+    public List<Magazine> getAllMagazines() {
+        List<Magazine> magazines = new ArrayList<>();
+        for (Item item : items.values()) {
+            if (item instanceof Magazine) {
+                magazines.add((Magazine) item);
+            }
+        }
+        return magazines;
+    }
+
     public List<Book> getAvailableBooks() {
         List<Book> availableBooks = new ArrayList<>();
         for (Item item : items.values()) {
@@ -103,6 +113,16 @@ public class Library {
             }
         }
         return availableMovies;
+    }
+
+    public List<Magazine> getAvailableMagazines() {
+        List<Magazine> availableMagazines = new ArrayList<>();
+        for (Item item : items.values()) {
+            if (item instanceof Magazine && item.isAvailable()) {
+                availableMagazines.add((Magazine) item);
+            }
+        }
+        return availableMagazines;
     }
 
     // Member management
@@ -190,6 +210,17 @@ public class Library {
         return movieResults;
     }
 
+    public List<Magazine> searchMagazines(String query) {
+        List<Magazine> magazineResults = new ArrayList<>();
+        List<Item> allResults = searchItems(query);
+        for (Item item : allResults) {
+            if (item instanceof Magazine) {
+                magazineResults.add((Magazine) item);
+            }
+        }
+        return magazineResults;
+    }
+
     public List<Book> searchByAuthor(String author) {
         List<Book> bookResults = new ArrayList<>();
         List<Item> allResults = searchByCreator(author);
@@ -210,6 +241,17 @@ public class Library {
             }
         }
         return movieResults;
+    }
+
+    public List<Magazine> searchByPublisher(String publisher) {
+        List<Magazine> magazineResults = new ArrayList<>();
+        List<Item> allResults = searchByCreator(publisher);
+        for (Item item : allResults) {
+            if (item instanceof Magazine) {
+                magazineResults.add((Magazine) item);
+            }
+        }
+        return magazineResults;
     }
 
     // Borrow/Return operations
@@ -279,12 +321,20 @@ public class Library {
         return borrowItem(memberId, movieID);
     }
 
+    public boolean borrowMagazine(String memberId, String magazineID) {
+        return borrowItem(memberId, magazineID);
+    }
+
     public boolean returnBook(String memberId, String isbn) {
         return returnItem(memberId, isbn);
     }
 
     public boolean returnMovie(String memberId, String movieID) {
         return returnItem(memberId, movieID);
+    }
+
+    public boolean returnMagazine(String memberId, String magazineID) {
+        return returnItem(memberId, magazineID);
     }
 
     // File I/O operations
