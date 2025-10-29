@@ -128,7 +128,7 @@ public class Library {
     public List<Item> searchByGenre(String genre) {
         List<Item> results = new ArrayList<>();
         for (Item item : items.values()) {
-            if (item.getGenre().contains(genre)) {
+            if (item.getGenre().matches(genre)) {
                 results.add(item);
             }
         }
