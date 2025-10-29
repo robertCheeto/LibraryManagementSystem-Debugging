@@ -179,6 +179,17 @@ public class Library {
         return bookResults;
     }
 
+    public List<Movie> searchMovies(String query) {
+        List<Movie> movieResults = new ArrayList<>();
+        List<Item> allResults = searchItems(query);
+        for (Item item : allResults) {
+            if (item instanceof Movie) {
+                movieResults.add((Movie) item);
+            }
+        }
+        return movieResults;
+    }
+
     public List<Book> searchByAuthor(String author) {
         List<Book> bookResults = new ArrayList<>();
         List<Item> allResults = searchByCreator(author);

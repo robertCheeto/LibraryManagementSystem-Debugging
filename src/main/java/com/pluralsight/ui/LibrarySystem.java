@@ -316,7 +316,7 @@ public class LibrarySystem {
         System.out.print("Enter search term for Movies (Title, Director, Genre, or Movie ID): ");
         String query = scanner.nextLine();
 
-        List<Movie> results = library.searchMovie(query);
+        List<Movie> results = library.searchMovies(query);
         if (results.isEmpty()) {
             System.out.println("No movies found matching your search.");
         } else {
