@@ -20,7 +20,6 @@ public class Library {
         logger.info("Library system initialized");
     }
 
-    // Item management
     public boolean addItem(Item item) {
         if (!items.containsKey(item.getId())) {
             items.put(item.getId(), item);
