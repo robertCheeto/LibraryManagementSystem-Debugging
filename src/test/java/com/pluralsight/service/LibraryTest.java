@@ -5,9 +5,9 @@ import com.pluralsight.model.Movie;
 import com.pluralsight.model.Magazine;
 import com.pluralsight.model.Member;
 import com.pluralsight.model.Item;
-import java.util.List;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
 public class LibraryTest {
     private Library library;
