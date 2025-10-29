@@ -170,20 +170,52 @@ public class LibrarySystem {
 
     // PLACEHOLDER MOVIE MENU (Students will implement)
     private void movieMenu() {
-        System.out.println("\n=== Movie Menu ===");
-        System.out.println("TODO: Movie menu implementation");
-        System.out.println("This menu should include:");
-        System.out.println("- View all movies");
-        System.out.println("- View available movies");
-        System.out.println("- Search movies by title");
-        System.out.println("- Search movies by director");
-        System.out.println("- Search movies by genre");
-        System.out.println("- Borrow movie");
-        System.out.println("- Return movie");
-        System.out.println("- Show movie duration");
-        System.out.println();
-        System.out.println("Press Enter to continue...");
-        scanner.nextLine();
+        boolean inMovieMenu = true;
+        while (inMovieMenu) {
+            System.out.println("\n=== Movie Menu ===");
+            System.out.println("1. View all movies");
+            System.out.println("2. View available movies");
+            System.out.println("3. Search movies by title");
+            System.out.println("4. Search movies by director");
+            System.out.println("5. Search movies by genre");
+            System.out.println("6. Borrow movie");
+            System.out.println("7. Return movie");
+            System.out.println("8. Show movie duration");
+            System.out.print("Enter your choice: ");
+
+            int choice = getChoice();
+            logger.debug("User selected movie menu option: " + choice);
+
+            switch (choice) {
+                case 1:
+                    viewAllBooks();
+                    break;
+                case 2:
+                    viewAvailableBooks();
+                    break;
+                case 3:
+                    searchBooks();
+                    break;
+                case 4:
+                    searchBooksByAuthor();
+                    break;
+                case 5:
+                    searchBooksByGenre();
+                    break;
+                case 6:
+                    borrowSpecificBook();
+                    break;
+                case 7:
+                    returnSpecificBook();
+                    break;
+                case 8:
+                    inBookMenu = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+        }
 
         // TODO: Students should implement movie-specific functionality here
         // Similar structure to bookMenu() but for Movie objects
@@ -214,6 +246,19 @@ public class LibrarySystem {
 
     // BOOK-SPECIFIC METHODS (Fully implemented as reference)
     private void viewAllBooks() {
+        List<Book> books = library.getAllBooks();
+        if (books.isEmpty()) {
+            System.out.println("No books in the library.");
+            return;
+        }
+
+        System.out.println("\n=== All Books ===");
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+
+    private void viewAllMovies() {
         List<Book> books = library.getAllBooks();
         if (books.isEmpty()) {
             System.out.println("No books in the library.");

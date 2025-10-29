@@ -75,6 +75,16 @@ public class Library {
         return books;
     }
 
+    public List<Movie> getAllMovies() {
+        List<Movie> movies = new ArrayList<>();
+        for (Item item : items.values()) {
+            if (item instanceof Movie) {
+                movies.add((Movie) item);
+            }
+        }
+        return movies;
+    }
+
     public List<Book> getAvailableBooks() {
         List<Book> availableBooks = new ArrayList<>();
         for (Item item : items.values()) {
