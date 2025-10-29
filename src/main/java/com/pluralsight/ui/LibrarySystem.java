@@ -201,9 +201,9 @@ public class LibrarySystem {
                 case 5:
                     searchMoviesByGenre();
                     break;
-//                case 6:
-//                    borrowSpecificMovie();
-//                    break;
+                case 6:
+                    borrowSpecificMovie();
+                    break;
 //                case 7:
 //                    returnSpecificMovies();
 //                    break;
@@ -371,6 +371,21 @@ public class LibrarySystem {
         }
     }
 
+    private void searchMoviesByGenre() {
+        System.out.print("Enter genre: ");
+        String genre = scanner.nextLine();
+
+        List<Item> results = library.searchByGenre(genre);
+        if (results.isEmpty()) {
+            System.out.println("No Movies found in genre: " + genre);
+        } else {
+            System.out.println("\n=== Movies in " + genre + " ===");
+            for (Item movie : results) {
+                System.out.println(movie);
+            }
+        }
+    }
+
     private void borrowSpecificBook() {
         System.out.print("Enter member ID: ");
         String memberId = scanner.nextLine();
@@ -379,6 +394,20 @@ public class LibrarySystem {
         String isbn = scanner.nextLine();
 
         if (library.borrowBook(memberId, isbn)) {
+            System.out.println("Book borrowed successfully!");
+        } else {
+            System.out.println("Unable to borrow book. Please check member ID, ISBN, and book availability.");
+        }
+    }
+
+    private void borrowSpecificMovie() {
+        System.out.print("Enter member ID: ");
+        String memberId = scanner.nextLine();
+
+        System.out.print("Enter Movie ID: ");
+        String movieID = scanner.nextLine();
+
+        if (library.borrowBook(memberId, movieID)) {
             System.out.println("Book borrowed successfully!");
         } else {
             System.out.println("Unable to borrow book. Please check member ID, ISBN, and book availability.");
