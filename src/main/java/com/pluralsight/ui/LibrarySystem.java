@@ -204,9 +204,9 @@ public class LibrarySystem {
                 case 6:
                     borrowSpecificMovie();
                     break;
-//                case 7:
-//                    returnSpecificMovies();
-//                    break;
+                case 7:
+                    returnSpecificMovie();
+                    break;
                 case 8:
                     inMovieMenu = false;
                     break;
@@ -418,6 +418,20 @@ public class LibrarySystem {
         System.out.print("Enter member ID: ");
         String memberId = scanner.nextLine();
 
+        System.out.print("Enter Movie ID: ");
+        String movieID = scanner.nextLine();
+
+        if (library.returnBook(memberId, movieID)) {
+            System.out.println("Movie returned successfully!");
+        } else {
+            System.out.println("Unable to return Movie. Please check member ID and Movie ID.");
+        }
+    }
+
+    private void returnSpecificMovie() {
+        System.out.print("Enter member ID: ");
+        String memberId = scanner.nextLine();
+
         System.out.print("Enter book ISBN: ");
         String isbn = scanner.nextLine();
 
@@ -426,9 +440,8 @@ public class LibrarySystem {
         } else {
             System.out.println("Unable to return book. Please check member ID and ISBN.");
         }
-
-
     }
+
     private int getChoice() {
         try {
             return Integer.parseInt(scanner.nextLine());

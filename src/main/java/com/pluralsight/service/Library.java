@@ -283,6 +283,10 @@ public class Library {
         return returnItem(memberId, isbn);
     }
 
+    public boolean returnMovie(String memberId, String movieID) {
+        return returnItem(memberId, movieID);
+    }
+
     // File I/O operations
     public void saveToCSV() throws IOException {
         logger.info("Starting data save operation");
