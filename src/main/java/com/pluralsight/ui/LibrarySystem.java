@@ -175,7 +175,7 @@ public class LibrarySystem {
             System.out.println("\n=== Movie Menu ===");
             System.out.println("1. View all movies");
             System.out.println("2. View available movies");
-            System.out.println("3. Search movies by title");
+            System.out.println("3. Search movies");
             System.out.println("4. Search movies by director");
             System.out.println("5. Search movies by genre");
             System.out.println("6. Borrow movie");
