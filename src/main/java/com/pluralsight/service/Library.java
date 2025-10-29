@@ -114,10 +114,10 @@ public class Library {
         query = query.toLowerCase();
 
         for (Item item : items.values()) {
-            if (item.getTitle().contains(query) ||
-                    item.getCreator().contains(query) ||
-                    item.getGenre().contains(query) ||
-                    item.getId().contains(query)) {
+            if (item.getTitle().toLowerCase().contains(query) ||
+                    item.getCreator().toLowerCase().contains(query) ||
+                    item.getGenre().toLowerCase().contains(query) ||
+                    item.getId().toLowerCase().contains(query)) {
                 results.add(item);
             }
         }
