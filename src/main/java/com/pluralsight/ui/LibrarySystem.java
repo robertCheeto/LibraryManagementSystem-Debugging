@@ -180,7 +180,6 @@ public class LibrarySystem {
             System.out.println("5. Search movies by genre");
             System.out.println("6. Borrow movie");
             System.out.println("7. Return movie");
-            System.out.println("8. Show movie duration");
             System.out.print("Enter your choice: ");
 
             int choice = getChoice();
@@ -199,9 +198,9 @@ public class LibrarySystem {
                 case 4:
                     searchMoviesByDirector();
                     break;
-//                case 5:
-//                    searchMoviesByGenre();
-//                    break;
+                case 5:
+                    searchMoviesByGenre();
+                    break;
 //                case 6:
 //                    borrowSpecificMovie();
 //                    break;
