@@ -193,9 +193,9 @@ public class LibrarySystem {
                 case 2:
                     viewAvailableMovies();
                     break;
-//                case 3:
-//                    searchMovies();
-//                    break;
+                case 3:
+                    searchMovies();
+                    break;
                 case 4:
                     searchMoviesByDirector();
                     break;
@@ -308,6 +308,21 @@ public class LibrarySystem {
             System.out.println("\n=== Book Search Results ===");
             for (Book book : results) {
                 System.out.println(book);
+            }
+        }
+    }
+
+    private void searchMovies() {
+        System.out.print("Enter search term for Movies (Title, Director, Genre, or Movie ID): ");
+        String query = scanner.nextLine();
+
+        List<Movie> results = library.searchMovie(query);
+        if (results.isEmpty()) {
+            System.out.println("No movies found matching your search.");
+        } else {
+            System.out.println("\n=== Movie Search Results ===");
+            for (Movie movie : results) {
+                System.out.println(movie);
             }
         }
     }
