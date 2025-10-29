@@ -407,7 +407,7 @@ public class LibrarySystem {
         System.out.print("Enter Movie ID: ");
         String movieID = scanner.nextLine();
 
-        if (library.borrowBook(memberId, movieID)) {
+        if (library.borrowMovie(memberId, movieID)) {
             System.out.println("Book borrowed successfully!");
         } else {
             System.out.println("Unable to borrow book. Please check member ID, ISBN, and book availability.");

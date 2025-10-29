@@ -275,6 +275,10 @@ public class Library {
         return borrowItem(memberId, isbn);
     }
 
+    public boolean borrowMovie(String memberId, String movieID) {
+        return borrowItem(memberId, movieID);
+    }
+
     public boolean returnBook(String memberId, String isbn) {
         return returnItem(memberId, isbn);
     }
